@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>RestoRating — отзывы о ресторанах</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="hero" id="home">
+    <div class="hero__inner">
+        <header class="header">
+            <div class="header__logo">
+                <img class="header__logo-icon" src="images/logo-icon.png" alt="logo">
+                <span class="header__logo-text">RestoRating</span>
+            </div>
+            <button class="header__burger" id="burgerBtn">
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+            </button>
+            <nav class="header__nav" id="navMenu">
+                <a href="#home" class="header__link">Главная</a>
+                <a href="#restaurants" class="header__link">Рестораны</a>
+                <a href="#reviews" class="header__link">Отзывы</a>
+                <a href="#about" class="header__link">О нас</a>
+            </nav>
+            <div class="header__buttons">
+                <a href="#" class="header__login-btn">Войти</a>
+                <a href="#" class="header__register-btn">Регистрация</a>
+            </div>
+        </header>
+
+        <div class="hero__main">
+            <h1 class="hero__title">RestoRating</h1>
+            <button class="hero__review-btn" id="openModalBtn">
+                <img class="hero__review-icon" src="images/geo-icon.png" alt="geo">
+                <span class="hero__review-text">ОСТАВИТЬ ОТЗЫВ</span>
+            </button>
+            <p class="hero__subtitle">выбирайте лучшие места<br>по реальным отзывам</p>
+        </div>
+
+        <div class="gallery">
+            <button class="gallery__arrow gallery__arrow--left" id="scrollLeft">‹</button>
+            <div class="gallery__container" id="photoScroll"></div>
+            <button class="gallery__arrow gallery__arrow--right" id="scrollRight">›</button>
+        </div>
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="page-content__container">
+        
+        <div class="features">
+            <h2 class="features__title">Почему выбирают нас</h2>
+            <div class="features__list">
+                <div class="features__item">
+                    <img class="features__icon" src="images/feature-icon-1.png" alt="иконка">
+                    <h3 class="features__item-title">Честные отзывы</h3>
+                    <p class="features__item-text">Только реальные мнения гостей ресторанов.</p>
+                </div>
+                <div class="features__item">
+                    <img class="features__icon" src="images/feature-icon-2.png" alt="иконка">
+                    <h3 class="features__item-title">Фото блюд</h3>
+                    <p class="features__item-text">Смотрите, как выглядят блюда на самом деле.</p>
+                </div>
+                <div class="features__item">
+                    <img class="features__icon" src="images/feature-icon-3.png" alt="иконка">
+                    <h3 class="features__item-title">Удобный поиск</h3>
+                    <p class="features__item-text">Фильтруйте по кухне, цене и рейтингу.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section" id="about">
+            <div class="about-section__inner">
+                <div class="about-section__image">
+                    <img src="images/about-photo.jpg" alt="О нас">
+                </div>
+                <div class="about-section__content">
+                    <h2 class="about-section__title">О проекте RestoRating</h2>
+                    <p class="about-section__text">RestoRating — это платформа для честных отзывов о ресторанах и кафе. Мы помогаем гостям выбирать лучшие места, а заведениям — получать обратную связь.</p>
+                    <p class="about-section__text">Присоединяйтесь к нашему сообществу! Оценивайте, комментируйте, делитесь фотографиями.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="top-bar">
+            <div class="top-bar__city" id="cityBtn">
+                <img class="top-bar__city-icon" src="images/geo-icon.png" alt="geo">
+                <span class="top-bar__city-name">Благовещенск</span>
+            </div>
+            <div class="top-bar__profile">
+                <img class="top-bar__profile-icon" src="images/user-icon.gif" alt="user">
+                <span class="top-bar__profile-text">Личный кабинет</span>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filters__item" data-filter="rating">Рейтинг 4+</button>
+            <button class="filters__item" data-filter="price">Средний чек до 1500₽</button>
+            <button class="filters__item" data-filter="italian">Итальянская</button>
+            <button class="filters__item" data-filter="chinese">Китайская</button>
+            <button class="filters__item" data-filter="vegan">Вегетарианская</button>
+        </div>
+
+        <h2 class="section-title" id="restaurants">Популярные заведения</h2>
+        
+        <div class="popular-scroll">
+            <div class="popular-scroll__container" id="popularScrollContainer"></div>
+            <button class="popular-scroll__show-all" id="showAllRestaurants">Показать все</button>
+        </div>
+
+        <div class="reviews-scroll" id="reviews">
+            <h2 class="section-title">Отзывы пользователей</h2>
+            <div class="reviews-scroll__container" id="reviewsContainer"></div>
+            <button class="reviews-scroll__btn" id="showAllReviews">Показать все</button>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__col">
+            <div class="footer__logo">RestoRating</div>
+            <p class="footer__copyright">2026 RestoRating</p>
+            <p class="footer__copyright">Все права защищены</p>
+        </div>
+        <div class="footer__col">
+            <h4 class="footer__title">Контакты</h4>
+            <p class="footer__text">info@restorating.ru</p>
+            <p class="footer__text">+7 (999) 123-45-67</p>
+        </div>
+        <div class="footer__col">
+            <h4 class="footer__title">Соцсети</h4>
+            <a href="#" class="footer__link">VK</a>
+            <a href="#" class="footer__link">Telegram</a>
+            <a href="#" class="footer__link">Instagram</a>
+        </div>
+        <div class="footer__col">
+            <h4 class="footer__title">Навигация</h4>
+            <a href="#home" class="footer__link">Главная</a>
+            <a href="#restaurants" class="footer__link">Рестораны</a>
+            <a href="#reviews" class="footer__link">Отзывы</a>
+            <a href="#about" class="footer__link">О нас</a>
+        </div>
+    </div>
+</footer>
+
+<button class="scroll-top" id="scrollTopBtn">↑</button>
+
+<div class="modal-city" id="cityModal">
+    <div class="modal-city__inner">
+        <button class="modal-city__close" id="closeCityModal">&times;</button>
+        <h3 class="modal-city__title">Выберите город</h3>
+        <ul class="modal-city__list">
+            <li class="modal-city__item">Благовещенск</li>
+            <li class="modal-city__item">Москва</li>
+            <li class="modal-city__item">Санкт-Петербург</li>
+            <li class="modal-city__item">Новосибирск</li>
+            <li class="modal-city__item">Владивосток</li>
+            <li class="modal-city__item">Хабаровск</li>
+        </ul>
+    </div>
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal__inner">
+        <button class="modal__close" id="closeModalBtn">&times;</button>
+        <h3 class="modal__title">Оставить отзыв</h3>
+        <form class="review-form" id="reviewForm">
+            <div class="review-form__field">
+                <label class="review-form__label">Ресторан</label>
+                <select class="review-form__select" id="restaurantSelect">
+                    <option value="">Выберите ресторан</option>
+                </select>
+            </div>
+            <div class="review-form__field">
+                <label class="review-form__label">Ваше имя</label>
+                <input type="text" class="review-form__input" id="userName" placeholder="Например: Анна">
+            </div>
+            <div class="review-form__field">
+                <label class="review-form__label">Оценка</label>
+                <div class="review-form__stars" id="starRating">
+                    <span class="review-form__star" data-value="1">☆</span>
+                    <span class="review-form__star" data-value="2">☆</span>
+                    <span class="review-form__star" data-value="3">☆</span>
+                    <span class="review-form__star" data-value="4">☆</span>
+                    <span class="review-form__star" data-value="5">☆</span>
+                </div>
+                <input type="hidden" id="ratingValue" value="0">
+            </div>
+            <div class="review-form__field">
+                <label class="review-form__label">Текст отзыва</label>
+                <textarea class="review-form__textarea" id="reviewText" rows="4" placeholder="Расскажите о своем опыте..."></textarea>
+            </div>
+            <div class="review-form__field">
+                <label class="review-form__label">Фото блюда</label>
+                <div class="photo-upload">
+                    <input type="file" class="photo-upload__input" id="reviewPhoto" accept="image/*" hidden>
+                    <button type="button" class="photo-upload__btn" id="choosePhotoBtn">
+                        <img class="photo-upload__icon" src="images/upload-icon.png" alt="upload">
+                        <span>Выбрать фото</span>
+                    </button>
+                    <div class="photo-upload__preview" id="photoPreview"></div>
+                </div>
+            </div>
+            <button type="submit" class="review-form__btn">Отправить отзыв</button>
+        </form>
+    </div>
+</div>
+
+<div class="modal-restaurant" id="restaurantModal">
+    <div class="modal-restaurant__inner">
+        <button class="modal-restaurant__close" id="closeRestaurantModal">&times;</button>
+        <div class="modal-restaurant__content" id="restaurantModalContent"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
